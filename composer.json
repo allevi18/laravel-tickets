@@ -1,17 +1,22 @@
 {
-    "name": "rexlmanu/laravel-tickets",
-    "description": "Simple but effective solutions to provide support",
+    "name": "rene-roscher/laravel-tickets",
+    "description": "Simple but effective solutions to provide support | fixed version",
     "keywords": [
         "rexlmanu",
         "laravel-tickets"
     ],
-    "homepage": "https://github.com/rexlmanu/laravel-tickets",
+    "homepage": "https://github.com/rene-roscher/laravel-tickets",
     "license": "MIT",
     "type": "library",
     "authors": [
         {
             "name": "Emmanuel Lampe",
             "email": "rexlmanude@gmail.com",
+            "role": "Developer"
+        },
+        {
+            "name": "René Roscher",
+            "email": "r.roscher@r-services.eu",
             "role": "Developer"
         }
     ],
