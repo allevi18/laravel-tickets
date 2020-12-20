@@ -13,7 +13,7 @@ class TicketMessage extends Model
     use HasConfigModel;
 
     protected $fillable = [
-        'message'
+        'message', 'user_id'
     ];
 
     public function getTable()
