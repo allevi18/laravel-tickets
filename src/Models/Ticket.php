@@ -18,6 +18,7 @@ class Ticket extends Model
         'priority',
         'state',
         'category_id',
+        'user_id'
     ];
 
     public function getTable()
