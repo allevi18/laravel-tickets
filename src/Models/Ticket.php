@@ -10,9 +10,8 @@ use RexlManu\LaravelTickets\Traits\HasConfigModel;
 
 class Ticket extends Model
 {
-    protected $keyType = 'string';
-    public $incrementing = false;
-
+    use HasConfigModel;
+    
     protected $fillable = [
         'subject',
         'priority',
