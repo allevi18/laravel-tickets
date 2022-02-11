@@ -9,12 +9,12 @@ trait HasConfigModel
 
     public function getKeyType()
     {
-        return 'string';
+        return config('laravel-tickets.models.key-type');
     }
 
     public function isIncrementing()
     {
-        return !$this instanceof Ticket;
+        return config('laravel-tickets.models.incrementing');
     }
     
 }
