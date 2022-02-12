@@ -35,6 +35,7 @@ class Ticket extends Model
             'tickets.id' => 8,
             'tickets.uuid' => 10,
             'users.email' => 10,
+            'users.username' => 10,
             'tickets.subject' => 5,
         ],
         'joins' => [
