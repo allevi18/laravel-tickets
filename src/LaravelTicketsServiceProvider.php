@@ -2,6 +2,7 @@
 
 namespace RexlManu\LaravelTickets;
 
+use Hashids\Hashids;
 use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
@@ -28,6 +29,11 @@ class LaravelTicketsServiceProvider extends ServiceProvider
         $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
         $this->routes();
         $this->observers();
+
+        Route::bind('ticket', function ($value, $route) {
+            $id = Hashids::connection('ticket')->decode($value)[0];
+            return Ticket::findOrFail($id);
+        });
 
         if ($this->app->runningInConsole()) {
             $this->publishes([

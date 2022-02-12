@@ -11,7 +11,8 @@ use RexlManu\LaravelTickets\Traits\HasConfigModel;
 class Ticket extends Model
 {
     use HasConfigModel;
-    
+    use TicketId;
+
     protected $fillable = [
         'subject',
         'priority',
@@ -19,6 +20,19 @@ class Ticket extends Model
         'category_id',
         'user_id'
     ];
+
+    protected $appends = ['hash'];
+
+
+    public function getHashAttribute($value) {
+        return $this->getRouteKey();
+    }
+
+
+    public function scopeHashid($query, $hashid)
+    {
+        return $query->where('id', Hashids::decode($hashid)[0]);
+    }
 
     public function getTable()
     {
