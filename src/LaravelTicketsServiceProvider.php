@@ -12,6 +12,7 @@ use RexlManu\LaravelTickets\Models\TicketUpload;
 use RexlManu\LaravelTickets\Observers\TicketMessageObserver;
 use RexlManu\LaravelTickets\Observers\TicketObserver;
 use RexlManu\LaravelTickets\Observers\TicketUploadObserver;
+use Hashids;
 
 class LaravelTicketsServiceProvider extends ServiceProvider
 {

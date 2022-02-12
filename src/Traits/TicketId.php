@@ -2,7 +2,7 @@
 
 
 namespace RexlManu\LaravelTickets\Traits;
-
+use Hashids;
 
 trait TicketId
 {
