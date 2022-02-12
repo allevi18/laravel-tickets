@@ -4,9 +4,6 @@
 namespace RexlManu\LaravelTickets\Traits;
 
 
-
-use Hashids\Hashids;
-
 trait TicketId
 {
 

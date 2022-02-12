@@ -2,7 +2,6 @@
 
 namespace RexlManu\LaravelTickets;
 
-use Hashids\Hashids;
 use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
