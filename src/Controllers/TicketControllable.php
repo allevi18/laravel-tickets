@@ -126,7 +126,7 @@ trait TicketControllable
             $data
         );
 
-        if (array_key_exists('reference', $data)) {
+        if (array_key_exists('reference', $data) && $data['reference']) {
             $reference = explode(',', $data[ 'reference' ]);
             $ticketReference = new TicketReference();
             $ticketReference->ticket()->associate($ticket);
