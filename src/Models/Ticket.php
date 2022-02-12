@@ -7,6 +7,7 @@ namespace RexlManu\LaravelTickets\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 use RexlManu\LaravelTickets\Traits\HasConfigModel;
+use RexlManu\LaravelTickets\Traits\TicketId;
 
 class Ticket extends Model
 {
