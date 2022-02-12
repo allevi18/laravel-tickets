@@ -7,6 +7,7 @@ namespace RexlManu\LaravelTickets\Rule;
 use Illuminate\Contracts\Validation\Rule;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use RexlManu\LaravelTickets\Interfaces\TicketReference;
+use RexlManu\LaravelTickets\Traits\HasTicketReference;
 
 class TicketReferenceRule implements Rule
 {
@@ -35,8 +36,11 @@ class TicketReferenceRule implements Rule
         $type = $values[ 0 ];
         if (! class_exists($type)) return false;
         $model = resolve($type)->find($values[ 1 ]);
+        $usingTrait = in_array(
+            HasTicketReference::class,
+            class_uses_recursive($model));
         if (empty($model)
-            || ! $model instanceof TicketReference
+            || ! $usingTrait
             || ! $model->hasReferenceAccess()) {
             return false;
         }
