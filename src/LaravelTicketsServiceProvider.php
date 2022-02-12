@@ -77,19 +77,19 @@ class LaravelTicketsServiceProvider extends ServiceProvider
     public function routes()
     {
         // Macro routing
-        foreach ([ 'ticketSystem', 'tickets' ] as $routeMacroName) {
-            Router::macro($routeMacroName, function ($controller) {
-                Route::middleware(config('laravel-tickets.guard'))->name('laravel-tickets.')->group(function () use ($controller) {
-                    Route::prefix(config('laravel-tickets.routing.prefix', 'tickets'))->group(function () use ($controller) {
-                        Route::get('/', [ $controller, 'index' ])->name('tickets.index');
-                        Route::post('/', [ $controller, 'store' ])->name('tickets.store');
-                        Route::get('/create', [ $controller, 'create' ])->name('tickets.create');
-                        Route::prefix('{ticket}')->group(function () use ($controller) {
-                            Route::get('/', [ $controller, 'show' ])->name('tickets.show');
-                            Route::post('/', [ $controller, 'close' ])->name('tickets.close');
-                            Route::post('/message', [ $controller, 'message' ])->name('tickets.message');
-                            Route::prefix('{ticketUpload}')->group(function () use ($controller) {
-                                Route::get('/download', [ $controller, 'download' ])->name('tickets.download');
+        foreach ([ 'support', 'tickets' ] as $routeMacroName) {
+            Router::macro($routeMacroName, function ($controller) use($routeMacroName) {
+                Route::middleware(config('laravel-tickets.guard'))->name('laravel-tickets.')->group(function () use ($controller, $routeMacroName) {
+                    Route::prefix($routeMacroName)->group(function () use ($controller, $routeMacroName) {
+                        Route::get('/', [ $controller, 'index' ])->name($routeMacroName.'.index');
+                        Route::post('/', [ $controller, 'store' ])->name($routeMacroName.'.store');
+                        Route::get('/create', [ $controller, 'create' ])->name($routeMacroName.'.create');
+                        Route::prefix('{ticket}')->group(function () use ($controller, $routeMacroName) {
+                            Route::get('/', [ $controller, 'show' ])->name($routeMacroName.'.show');
+                            Route::post('/', [ $controller, 'close' ])->name($routeMacroName.'.close');
+                            Route::post('/message', [ $controller, 'message' ])->name($routeMacroName.'.message');
+                            Route::prefix('{ticketUpload}')->group(function () use ($controller, $routeMacroName) {
+                                Route::get('/download', [ $controller, 'download' ])->name($routeMacroName.'.download');
                             });
                         });
                     });
