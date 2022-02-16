@@ -10,6 +10,7 @@ use RexlManu\LaravelTickets\Traits\HasConfigModel;
 class TicketActivity extends Model
 {
     use HasConfigModel;
+    use \Spiritix\LadaCache\Database\LadaCacheTrait;
 
     protected $fillable = [
         'type'
