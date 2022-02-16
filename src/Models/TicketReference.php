@@ -11,6 +11,7 @@ class TicketReference extends Model
 {
 
     use HasConfigModel;
+    use \Spiritix\LadaCache\Database\LadaCacheTrait;
 
     public function getTable()
     {
