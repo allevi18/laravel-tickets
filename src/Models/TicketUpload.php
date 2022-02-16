@@ -11,6 +11,7 @@ class TicketUpload extends Model
 {
 
     use HasConfigModel;
+    use \Spiritix\LadaCache\Database\LadaCacheTrait;
 
     protected $fillable = [
         'path'
