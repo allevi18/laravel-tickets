@@ -11,6 +11,7 @@ class TicketMessage extends Model
 {
 
     use HasConfigModel;
+    use \Spiritix\LadaCache\Database\LadaCacheTrait;
 
     protected $fillable = [
         'message', 'user_id'
