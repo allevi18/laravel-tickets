@@ -26,6 +26,7 @@ class Ticket extends Model
         'priority',
         'state',
         'category_id',
+        'opener_id',
         'user_id',
         'uuid'
     ];
