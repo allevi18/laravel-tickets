@@ -20,6 +20,7 @@ class Ticket extends Model
     use SearchableTrait;
     use Uuid;
     use Sortable;
+    use \Spiritix\LadaCache\Database\LadaCacheTrait;
 
     protected $fillable = [
         'subject',
