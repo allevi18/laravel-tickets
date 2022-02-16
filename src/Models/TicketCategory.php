@@ -12,6 +12,7 @@ class TicketCategory extends Model
 {
 
     use HasConfigModel;
+    use \Spiritix\LadaCache\Database\LadaCacheTrait;
 
     protected $fillable = [
         'translation, priority'
