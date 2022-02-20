@@ -8,7 +8,9 @@ trait HasTicketReference
 {
     public function toReference(): string
     {
-        $type = basename(get_class($this));
+        $type = class_basename($this);
+        if($type == 'Order')
+            $type = 'Booking';
         $result = $this->hash ?? ($this->uuid ?? $this->id);
         return "$type #$result";
     }
